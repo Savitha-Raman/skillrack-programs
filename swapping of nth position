@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+void main(){
+  int i,j=0,mul,temp,pos,sum;
+  char a[100];
+  int b[10];
+    fgets(a,100,stdin);
+  scanf("%d",&pos);
+  i=strlen(a)-1;
+  while(i>=0)
+  { sum=0;mul=1;
+     while(i>=0&&a[i]!=' '&&a[i]!='\n');
+     { sum=sum+(a[i]-48)*mul;
+       mul=mul*10;
+       i--;
+     }
+     i--;
+     b[j]=sum;
+     j++;
+  }
+  b[1]=(b[1]+35)/10;
+  temp=b[pos];b[pos]=b[j-pos];b[j-pos]=temp;
+  for(i=0;i<j;i++)
+  printf("%d",b[i]);
+}
