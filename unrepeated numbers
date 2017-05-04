@@ -1,0 +1,37 @@
+i/p
+4 5
+1 12 5 7
+5 6 3 7 80
+o/p
+5 - 5 unrepeated numbers
+
+#include<stdio.h>
+#include <stdlib.h>
+ 
+int main()
+{ int m,n,i,j,count,length,ans=0,x;
+  scanf("%d %d",&m,&n);
+  length=m*n;
+  int *combined=malloc(sizeof(int)*length);
+  for(i=0;i<m;i++)
+    scanf("%d",&combined[i]);
+  x=m;
+  for(i=0;i<n;i++)
+    { scanf("%d",&combined[x]);
+         x++;
+    }
+  for(i=0;i<length;i++)
+  {  count=0;
+     if(combined[i])
+      {  for(j=i+1;j<length;j++)
+         { if(combined[i]==combined[j])
+           { count++;
+             combined[j]=0;
+           }
+         }
+         if(count==0)
+          ans++;
+      }
+  }
+   printf("%d",ans);
+}
