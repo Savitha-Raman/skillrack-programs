@@ -1,0 +1,37 @@
+i/p: PROGRAM
+
+O/P:
+******G
+*****GR
+****GRA
+***GRAM
+**GRAMP
+*GRAMPR
+GRAMPRO
+
+
+#include<stdio.h>
+#include <stdlib.h>
+#include<string.h>
+int main()
+{ char a[100];
+  int length,i,j,t,middle;
+  fgets(a,100,stdin);
+  length=strlen(a);
+  middle=length/2-1;
+  a[length-1]='\0';
+  for(i=1;i<length;i++)
+  { printf("\n");
+    t=middle;
+    for(j=1;j<length;j++)
+    {  if(i+j>length-1)
+         {  printf("%c",a[t]);
+              t++;
+              if(t==length-1)
+                t=0;
+         }
+       else
+         printf("*");
+    }
+  }
+}
