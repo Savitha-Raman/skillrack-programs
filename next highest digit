@@ -61,6 +61,38 @@ std::cout<<s;
 
 
 
-
+#include<stdio.h>
+#include <stdlib.h>
+#include<string.h>
+int main()
+{
+    int i,j,k,len,x,small,temp;
+    char num[15];
+    scanf("%s",num);
+    len=strlen(num);
+    for(i=len-1;i>0;i--){
+        if(num[i]>num[i-1])
+            break;
+    }
+    x=num[i-1];
+    small=i;
+    for(j=i+1;j<len;j++){
+        if((num[j]>x)&&(num[j]<num[small]))
+            small=j;
+    }
+    temp=num[small];
+    num[small]=num[i-1];
+    num[i-1]=temp;
+    for(j=i;j<len-1;j++){
+        for(k=j+1;k<len;k++){
+            if(num[j]>num[k]){
+                temp=num[j];
+                num[j]=num[k];
+                num[k]=temp;
+            }
+        }
+    }
+    printf("%s",num);
+    return 0;
 
 
