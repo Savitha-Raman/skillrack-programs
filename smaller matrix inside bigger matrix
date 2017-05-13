@@ -1,0 +1,92 @@
+//to check the presence of smaller matrix inside the larger one
+
+#include<stdio.h>
+#include <stdlib.h>
+ 
+int main()
+{
+    int i,j,n,m,a[20][20],b[20][20],r,c,co=0,p,z=0;
+    scanf("%d%d",&n,&m);
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<n;j++)
+        scanf("%d",&a[i][j]);
+    }
+    for(i=0;i<m;i++)
+    {
+        for(j=0;j<m;j++)
+        scanf("%d",&b[i][j]);
+    }
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+            if(a[i][j]==b[0][0])
+            {
+                z=1;
+                p=j;
+                for(r=0;r<m;r++)
+                {
+                    for(c=0;c<m;c++)
+                    {
+                        if(a[i][j++]==b[r][c])
+                        co++;
+                    }
+                    j=p;
+                    i++;
+                }
+                if(co==m*m)
+                printf("TRUE");
+                else
+                printf("FALSE");
+            }
+        }
+        if(z==1)
+        break;
+    }
+ }
+ 
+ 
+ 
+ //method 2
+ #include<stdio.h>
+#include <stdlib.h>
+ 
+int main()
+{
+int n1,n2,i,j,t1,t2,t;
+int m1[20][20],m2[20][20];
+scanf("%d%d",&n1,&n2);
+for(i=0;i<n1;i++){
+    for(j=0;j<n1;j++)
+        scanf("%d",&m1[i][j]);
+}
+for(i=0;i<n2;i++){
+    for(j=0;j<n2;j++)
+    scanf("%d",&m2[i][j]);
+}
+for(i=0;i<=n1-n2;i++){
+    for(j=0;j<=n1-n2;j++){
+        if(m2[0][0]==m1[i][j]){
+            t1=i;
+            t2=j;
+        }
+    }
+}
+for(i=0;i<n2;i++){
+    for(j=0;j<n2;j++){
+        if(m2[i][j]==m1[i+t1][j+t2])
+            t=0;
+        else{
+            t=1;
+            break;
+        }
+    }
+}
+if(t==0)
+printf("TRUE");
+else
+printf("FALSE");
+//printf("%d%d",t1,t2);
+}
+C++ 12-May-2017 07:56
