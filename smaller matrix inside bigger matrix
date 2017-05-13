@@ -89,4 +89,45 @@ else
 printf("FALSE");
 //printf("%d%d",t1,t2);
 }
+
+
+#include<stdio.h>
+#include <stdlib.h>
+ 
+int main()
+{
+    int n, m, i, j, k, l, a=0, b=0;
+    scanf("%d\n%d",&n,&m);
+    int big[n][n], small[m][m];
+    for(i=0;i<n;i++){
+        for(j=0;j<n;j++){
+            scanf("%d",&big[i][j]);
+        }
+    }
+    for(i=0;i<m;i++){
+        for(j=0;j<m;j++){
+            scanf("%d",&small[i][j]);
+        }
+    }
+    for(i=0;i<n;i++){
+        for(j=0;j<n;j++){
+            if(big[i][j]==small[0][0]){
+                for(k=i,a=0;k<i+m;k++,a++){
+                    for(l=j,b=0;l<j+m;l++,b++){
+                        if(big[k][l]!=small[a][b])
+                            goto next;
+                    }
+                }
+                if(k==i+m && l==j+m){
+                    printf("TRUE");
+                    return;
+                }
+            }
+        }
+        next: continue;
+    }
+    if(i==n && j==n)
+        printf("FALSE");
+    return 0;
+}
 C++ 12-May-2017 07:56
