@@ -1,0 +1,59 @@
+one sentence and two words are given we need to find the minimum distance between these two words in the given sentence
+ 
+i/p: the brown quick frog quick the
+ the
+ quick
+ o/p:
+ 1
+ 
+ 
+ #include<stdio.h>
+#include <stdlib.h>
+
+int main()
+{  int i,length,j,n,m=0,l1,l2,distance,x,y,temp,count;
+   int d[100];
+   char a[200],W1[50],W2[50];
+   fgets(a,200,stdin);
+   scanf("%s",&W1);
+   scanf("%s",&W2);
+   length=strlen(a);
+   l1=strlen(W1);
+   l2=strlen(W2);
+   for(i=0;i<length;i++){
+       x=0;n=i;
+       for(j=0;j<l1;j++){
+           if(a[n]==W1[j])
+             x++;
+             n++;
+       }
+       if(x==l1)
+       {  d[m]=i;
+          m++;
+       }
+       y=0;n=i;
+       for(j=0;j<l2;j++){
+           if(a[n]==W2[j])
+           y++;
+           n++;
+       }
+       if(y==l2)
+       {  d[m]=i;
+           m++;
+       }
+   }
+    distance=length;
+   for(i=0;i<m-1;i++){
+       temp=d[i];count=0;
+    for(j=d[i];j<=d[i+1];j++){
+        if(a[j]==' ')
+         count++;
+    }   
+    if(count<distance)
+     distance=count;
+   }
+   if(l1==l2)
+   printf("%d",distance+1);
+   else
+  printf("%d",distance);
+}
