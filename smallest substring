@@ -27,8 +27,6 @@ int main()
 //puts(b);
 min=length;
 n=strlen(b);
-if(a[0]=='k')
- puts(b);
 for(k=0;k<length-1;k++){
   for(i=k;i<length;i++){
     m++;
