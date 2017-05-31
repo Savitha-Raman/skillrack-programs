@@ -1,0 +1,53 @@
+
+
+
+
+
+#include<stdio.h>
+#include <stdlib.h>
+
+int main()
+{ char a[200],b[100];
+  int length,i,n,x,j,count,max=0,m=0,k=0,check,y,start;
+  scanf("%s %d",&a,&n);
+  length=strlen(a);
+  for(i=0;i<length;i++){
+      k++;
+      start=i;
+      //printf("%d ",k);
+      m=0;count=0;
+      memset(b,0,100);
+      b[m]=a[i];
+      m++;
+      i++;
+      while(m<n){
+        check=0;
+        for(j=0;j<m;j++){
+           if(b[j]==a[i])
+           check++;
+        }
+        if(check==0)
+        { b[m]=a[i];
+          m++;
+        }
+        i++;
+     }
+     for(x=start;x<length;x++){
+         check=0;
+         for(y=0;y<m;y++){
+             if(a[x]==b[y])
+               check++;
+         }  
+         if(check==0)
+           break;
+         else
+           count++; 
+     }
+      //printf(" %s ",b);
+     // printf(" %d ",count);
+      if(max<count)
+       max=count;
+      i=k-1;
+  }    
+  printf("%d",max);
+}
