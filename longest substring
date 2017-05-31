@@ -1,4 +1,15 @@
-
+to find the longest substring in the given string with n unique characters
+Input: abcdcdabcdef 2
+Output: 4 
+Explanation: The longest possible substring with 2 unique characters in abcdcdabcdef is cdcd whose length is 4.
+Example Input/Output 2: 
+Input: manager 3
+Output: 4 
+Explanation: The longest possible substring with 3 unique characters in manager is either mana or anag whose length is 4. 
+Example Input/Output 3:
+Input: dddddddddddd 1 
+Output: 12
+Explanation: The longest possible substring with 1 unique character in dddddddddddd is dddddddddddd itself which is 12.
 
 
 
