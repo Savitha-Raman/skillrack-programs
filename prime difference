@@ -1,0 +1,47 @@
+A number N is passed as the input.
+The program must print the difference between the next immediate prime number and the previous immediate prime number. 
+If the given number N itself is a prime number then print 0 (zero).
+Input Format: The first line will contain the value of the number N. 
+Boundary Conditions: 2 <= N <= 9999999 
+Output Format: The difference between the next immediate prime number and the previous immediate prime number for N.
+Example Input/Output 1:
+Input: 14 
+Output: 4
+Explanation: The next immediate prime number is 17. 
+The previous immediate prime number is 13. Hence their difference = 17-13 = 4 is printed as output.
+Example Input/Output 2: 
+Input: 23
+Output: 0
+Explanation: 23 itself is a prime number. Hence the output is 0.
+Example Input/Output 3: 
+Input: 2580 
+Output: 12 
+Explanation: The next immediate prime number is 2591.
+The previous immediate prime number is 2579. Hence their difference 12 is printed as output.
+
+
+#include<stdio.h>
+#include <stdlib.h>
+
+int main()
+{  int n,i,j,first,second,check;
+    scanf("%d",&n);
+    for(i=0;i<2*n;i++){
+        check=0;
+        for(j=2;j<i;j++){
+            if(i%j==0)
+            check++;
+        }
+        if(check==0&&i<n)
+         first=i;
+        else if(check==0&&i==n){
+            first=0;second=0;
+            break;
+        }
+        else if(check==0&&i>n){
+            second=i;
+            break;
+        }
+    }
+    printf("%d",second-first);
+}
